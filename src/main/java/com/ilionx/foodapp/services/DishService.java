@@ -40,6 +40,8 @@ public class DishService {
 
     public Optional<List<Dish>> findAbovePrice (Double price){return dishRepository.findDishAbovePrice(price);}
 
+    public Optional<List<Dish>> findByGroup (String groupName){return dishRepository.findDishByGroup(groupName);}
+
     @Transactional
     public Optional<Dish> updateDish(Dish dish, long id){
         Optional<Dish> optionalDish = findById(id);

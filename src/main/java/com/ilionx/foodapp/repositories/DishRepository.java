@@ -20,4 +20,7 @@ public interface DishRepository extends JpaRepository<Dish, Long> {
     // Normal SQL query syntax
     @Query(value = "select * from dish where price > ?1", nativeQuery = true)
     Optional<List<Dish>> findDishAbovePrice(Double price);
+
+    @Query("select d from Dish d where d.groupName like %?1%")
+    Optional<List<Dish>> findDishByGroup(String groupName);
 }

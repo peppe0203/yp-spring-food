@@ -42,6 +42,15 @@ public class DishController {
         return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/group:{groupName}")
+    public ResponseEntity<Optional<List<Dish>>> getDishByGroup(@PathVariable String groupName){
+        if (!this.dishService.findByGroup(groupName).get().isEmpty()){
+            return ResponseEntity.ok(this.dishService.findByGroup(groupName));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/priceBelow:{price}")
     public ResponseEntity<Optional<List<Dish>>> getDishBelowPrice(@PathVariable Double price){
         if (!this.dishService.findBelowPrice(price).get().isEmpty()){
@@ -84,10 +93,5 @@ public class DishController {
         } else {
             return ResponseEntity.notFound().build();
         }
-
     }
-
-
-    //TODO return responscodes
-    //TODO avoid backend logic in the controller move this to the service
 }
