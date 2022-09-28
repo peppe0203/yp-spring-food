@@ -19,7 +19,6 @@ public class Dish {
 
     private Double price;
 
-    //TODO maby add an categori to test the query's
 
     public Long getId() {
         return id;

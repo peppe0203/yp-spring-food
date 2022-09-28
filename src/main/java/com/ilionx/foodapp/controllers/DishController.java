@@ -21,6 +21,7 @@ public class DishController {
 
     @GetMapping
     public ResponseEntity<List<Dish>> getAllDishes() {
+        dishService.testBeanAndConfig();
         return ResponseEntity.ok(this.dishService.findAll());
     }
 
@@ -51,19 +52,10 @@ public class DishController {
         }
     }
 
-    @GetMapping("/priceBelow:{price}")
-    public ResponseEntity<Optional<List<Dish>>> getDishBelowPrice(@PathVariable Double price){
-        if (!this.dishService.findBelowPrice(price).get().isEmpty()){
-            return ResponseEntity.ok(this.dishService.findBelowPrice(price));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @GetMapping("/priceAbove:{price}")
-    public ResponseEntity<Optional<List<Dish>>> getDishAbovePrice(@PathVariable Double price){
-        if (!this.dishService.findAbovePrice(price).get().isEmpty()){
-            return ResponseEntity.ok(this.dishService.findAbovePrice(price));
+    @GetMapping("/price/from/{startPrice}/to/{endPrice}")
+    public ResponseEntity<Optional<List<Dish>>> getPriceBetween(@PathVariable double startPrice,@PathVariable Double endPrice){
+        if (!this.dishService.findBetweenPrice(startPrice, endPrice).get().isEmpty()){
+            return ResponseEntity.ok(this.dishService.findBetweenPrice(startPrice,endPrice));
         } else {
             return ResponseEntity.notFound().build();
         }
