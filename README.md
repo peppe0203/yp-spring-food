@@ -90,4 +90,4 @@ DELETE http://localhost:8080/dish/6
 ````
 
 ## Contact
-For questions you can connect [Giuseppe Collura](mailto:GCollura@ilionx.com)
+For questions you can connect [Giuseppe Collura](mailto:)
