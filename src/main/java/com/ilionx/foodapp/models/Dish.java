@@ -1,9 +1,8 @@
 package com.ilionx.foodapp.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.lang.Nullable;
+
+import javax.persistence.*;
 
 @Entity
 public class Dish {
@@ -11,6 +10,8 @@ public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String groupName;
 
     private String name;
 
@@ -22,6 +23,14 @@ public class Dish {
 
     public Long getId() {
         return id;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
     public String getName() {

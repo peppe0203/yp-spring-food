@@ -3,16 +3,11 @@ package com.ilionx.foodapp.services;
 import com.ilionx.foodapp.models.Dish;
 import com.ilionx.foodapp.repositories.DishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 
 @Service
 public class DishService {
@@ -38,14 +33,19 @@ public class DishService {
     }
 
     public Optional<Dish> findByName(String name){
-        return this.dishRepository.findByName(name);
+        return dishRepository.findByName(name);
     }
+
+    public Optional<List<Dish>> findBelowPrice (Double price){return dishRepository.findDishUnderPrice(price);}
+
+    public Optional<List<Dish>> findAbovePrice (Double price){return dishRepository.findDishAbovePrice(price);}
 
     @Transactional
     public Optional<Dish> updateDish(Dish dish, long id){
         Optional<Dish> optionalDish = findById(id);
         if(optionalDish.isPresent()){
             Dish oldDish = optionalDish.get();
+            oldDish.setGroupName((dish.getGroupName()));
             oldDish.setName(dish.getName());
             oldDish.setDescription(dish.getDescription());
             oldDish.setPrice(dish.getPrice());

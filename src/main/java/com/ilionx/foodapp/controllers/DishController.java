@@ -42,6 +42,24 @@ public class DishController {
         return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/priceBelow:{price}")
+    public ResponseEntity<Optional<List<Dish>>> getDishBelowPrice(@PathVariable Double price){
+        if (!this.dishService.findBelowPrice(price).get().isEmpty()){
+            return ResponseEntity.ok(this.dishService.findBelowPrice(price));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/priceAbove:{price}")
+    public ResponseEntity<Optional<List<Dish>>> getDishAbovePrice(@PathVariable Double price){
+        if (!this.dishService.findAbovePrice(price).get().isEmpty()){
+            return ResponseEntity.ok(this.dishService.findAbovePrice(price));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Dish> createDish(@RequestBody Dish dish) throws URISyntaxException {
         Dish newDish =this.dishService.save(dish);
