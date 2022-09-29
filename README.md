@@ -8,7 +8,7 @@ Credentials for the course website:
 - Username: cursist
 - Password: ilionx2022!
 
-For the exercise, I made an API for food dishes. The API as all the CRUD functionalities.
+For the exercise, I made an API for food dishes. The API has all the CRUD functionalities.
 There are also some beans added for testing purposes, the beans are identified as different cooks.
 
 ## Requirements
@@ -19,6 +19,11 @@ The different requirements to run te code:
 - Postman agent.
 
 ## Example queries for testing
+Change the Port number for different uses:
+
+- ``Port 8080`` is for development;
+- ``Port 8081`` is used for testing;
+- ``Port 808*`` Other ports are still free and not in use;
 
 ### 1. Get all dishes
 
@@ -85,9 +90,11 @@ Add JSON to the request body:
 ````
 
 ### 8. Delete dish by id
+
 ````http request
 DELETE http://localhost:8080/dish/6
 ````
 
 ## Contact
+
 For questions you can connect [Giuseppe Collura](mailto:)

@@ -1,6 +1,5 @@
 package com.ilionx.foodapp.models;
 
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
