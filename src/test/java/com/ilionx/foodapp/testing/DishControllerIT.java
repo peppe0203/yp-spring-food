@@ -21,6 +21,7 @@ import java.util.ArrayList;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DishControllerIT {
 
+    // The restTemplate makes the CRUD (CREATE, GET, PUT, DELETE) functionalities possible
     @Autowired
     public TestRestTemplate restTemplate;
     private static long currentId = -1;

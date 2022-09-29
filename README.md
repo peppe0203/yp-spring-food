@@ -19,6 +19,7 @@ The different requirements to run te code:
 - Postman agent.
 
 ## Example queries for testing
+
 Change the Port number for different uses:
 
 - ``Port 8080`` is for development;
@@ -96,8 +97,12 @@ DELETE http://localhost:8080/dish/6
 ````
 
 ## Tests
+
 There are some unit and integration test implemented (note, not for every functionality there is a test).
 The tests are only for try out. The test can be found in the ``src/test/java`` folder
+
+_Want to test the normal application with the test configuration?, edit the run configuration and add a active profiles:
+test_
 
 ## Contact
 
