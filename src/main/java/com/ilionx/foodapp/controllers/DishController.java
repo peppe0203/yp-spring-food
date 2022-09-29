@@ -63,7 +63,7 @@ public class DishController {
     @PostMapping
     public ResponseEntity<Dish> createDish(@RequestBody Dish dish) throws URISyntaxException {
         Dish newDish =this.dishService.save(dish);
-        return ResponseEntity.created(new URI("" + newDish.getId())).build();
+        return ResponseEntity.created(new URI("" + newDish.getId())).body(newDish);
     }
 
     @PutMapping("{id}")

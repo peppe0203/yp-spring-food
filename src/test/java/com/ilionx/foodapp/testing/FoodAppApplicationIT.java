@@ -1,4 +1,4 @@
-package com.ilionx.foodapp;
+package com.ilionx.foodapp.testing;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class FoodAppApplicationIT {
 
+	//Integratie test
 	@Test
 	void contextLoads() {
 	}
