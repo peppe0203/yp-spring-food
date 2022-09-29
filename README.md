@@ -95,6 +95,10 @@ Add JSON to the request body:
 DELETE http://localhost:8080/dish/6
 ````
 
+## Tests
+There are some unit and integration test implemented (note, not for every functionality there is a test).
+The tests are only for try out. The test can be found in the ``src/test/java`` folder
+
 ## Contact
 
 For questions you can connect [Giuseppe Collura](mailto:)
