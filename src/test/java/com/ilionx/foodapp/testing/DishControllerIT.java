@@ -26,6 +26,7 @@ public class DishControllerIT {
     private static long currentId = -1;
 
 
+    // The next test is for initialisation the basic database
     @Test
     @Order(0)
     public void setup() {
@@ -83,5 +84,19 @@ public class DishControllerIT {
         ResponseEntity<Dish> response = this.restTemplate.getForEntity("/dish/" + 1, Dish.class);
         assertEquals(1, response.getBody().getId());
         assertEquals("Pesto speciale", response.getBody().getName());
+    }
+
+    // Count amount of dishes and delete one, count again and this needs to be equal + 1
+    @Test
+    @Order(4)
+    public void testDeleteById(){
+        dishList allDishes = this.restTemplate.getForEntity("/dish", dishList.class).getBody();
+        long orgAmountDishes = allDishes.stream().count();
+
+        this.restTemplate.delete("/dish/1");
+
+        dishList allDishesMinOne = this.restTemplate.getForEntity("/dish", dishList.class).getBody();
+        long newAmountDishes = allDishesMinOne.stream().count();
+        assertEquals(orgAmountDishes, newAmountDishes + 1);
     }
 }
