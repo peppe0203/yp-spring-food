@@ -18,7 +18,7 @@ import java.util.Stack;
 
 // This name cannot end with Test because it is an integration test, and we don't want to run this with test.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles("Integrationtest")
+@ActiveProfiles("integrationtest")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DishControllerIT {
 
